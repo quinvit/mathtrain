@@ -4,30 +4,89 @@ Meteor.startup(function () {
 });
 
 var Questions = new Mongo.Collection("questions");
-Questions._ensureIndex({ "question": 1});
+Questions._ensureIndex({"question": 1});
 
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min)) + min;
+    return ((Math.random() * (max - min)) + min) >> 0;
 }
 
-function nextQuestion() {
-    var x = getRandomInt(0, 100);
-    var y = getRandomInt(0, 100);
+var formulas = {
+    '+': function (x, y) {
+        return x + y;
+    },
+    '-': function (x, y) {
+        return x - y;
+    },
+    '*': function (x, y) {
+        return x * y;
+    },
+    '/': function (x, y) {
+        return x / y;
+    },
+    '~': function (z) {
+        var i = 1;
+        if (z < 10) {
+            i = (Math.random() * z) >> 0;
+        }
+        else {
+            var r = (Math.random() * 7);
+            var test = (~~r) % 2;
 
-    var z = x + y;
-    var i = getRandomInt(-5, 5);
-    // Not zero
-    i = (i === 0) ? 10 : i * 10;
-    // Not negative
-    i = (i + z <= 0) ? ~~i : i;
+            r = r * 10;
+            r = (r === 0 || r > z) ? 10 : r;
+            i = (test ? z + r : z - r) >> 0;
+        }
+
+        return i === 0 ? 1 : i;
+    }
+};
+
+var levels = {
+    'baby': {
+        formulas: ['+', '-'],
+        max_number: 19,
+        min_number: 1
+    },
+    'junior': {
+        formulas: ['+', '-'],
+        max_number: 49,
+        min_number: 1
+    },
+    'senior': {
+        formulas: ['+', '-', '*', '/'],
+        max_number: 19,
+        min_number: 1
+    },
+    'master': {
+        formulas: ['+', '-', '*', '/'],
+        max_number: 49,
+        min_number: 1
+    }
+}
+
+var levelIndexs = ['baby', 'junior', 'senior', 'master'];
+
+function nextQuestion(levelIndex) {
+
+    var level = levels[levelIndexs[levelIndex]] || levels.baby;
+
+    var x = getRandomInt(level.min_number, level.max_number);
+    var y = getRandomInt(level.min_number, level.max_number);
+
+    var fi = (Math.random() * (level.formulas.length - 1)) >> 0;
+    var f = level.formulas[fi];
+
+    // Pre-calculation
+    var z = formulas[f](x, y);
 
     // Random detractor
-    var d = x + y + i;
+    var d =  formulas['~'](z);
+
     var a = (d % 2) ? z : d;
     var b = (d % 2) ? d : z;
 
     var q = {
-        question: [x, ' + ', y, ' = ?'].join(''),
+        question: [x, ' ', f, ' ', y, ' = ?'].join(''),
         answers: {
             answerA: a,
             answerB: b
@@ -37,7 +96,7 @@ function nextQuestion() {
 
     var existingQuestion = Questions.find({question: q.question});
 
-    if(!existingQuestion.question) {
+    if (!existingQuestion.question) {
         Questions.insert(q);
     }
     else {
@@ -51,19 +110,19 @@ function nextQuestion() {
 }
 
 Meteor.methods({
-    next: function(){
-        var q = nextQuestion();
+    next: function (level) {
+        var q = nextQuestion(level);
         return q;
     },
-    answer: function(q, a) {
+    answer: function (q, a) {
 
-        if(!q || !a) {
+        if (!q || !a) {
             return null;
         }
 
         var question = Questions.findOne({question: q});
 
-        if(!question) {
+        if (!question) {
             return null;
         }
 
