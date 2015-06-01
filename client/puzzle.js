@@ -1,5 +1,5 @@
 function nextQuestion() {
-    Meteor.call('next', nextLevel(), function(err, data){
+    Meteor.call('next', nextLevel(), function (err, data) {
         Session.set('question', data);
         Session.set('result', null);
     });
@@ -12,7 +12,7 @@ function nextLevel() {
 
     // Best learning factor: 50%-85%
     // Min 10 answers and correct answer is higher than 85%
-    if(right > 10 && ((right / wrong) * 100 > 85)) {
+    if (right > 10 && ((right / wrong) * 100 > 85)) {
         // Improve one level
         currentLevel++;
         Session.set('level', currentLevel);
@@ -21,7 +21,7 @@ function nextLevel() {
         Session.set('right', 0);
         Session.set('wrong', 0);
     }
-    else if(currentLevel > 1 && right > 10 && ((right / wrong) * 100 < 50)) {
+    else if (currentLevel > 1 && right > 10 && ((right / wrong) * 100 < 50)) {
         // Down one level
         currentLevel--;
         Session.set('level', currentLevel);
@@ -40,7 +40,7 @@ var tmr = 0;
 
 function answerText(right) {
 
-    if(right === null) {
+    if (right === null) {
         return null;
     }
 
@@ -57,26 +57,26 @@ function answerText(right) {
 }
 
 Template.question.helpers({
-    question: function(){
+    question: function () {
         return Session.get('question');
     },
-    result: function(){
+    result: function () {
         return Session.get('result');
     }
 });
 
 Template.question.events({
     'click #answerA': function () {
-        Meteor.call('answer', Session.get('question').question, $('#answerA').text(), function(err, data){
+        Meteor.call('answer', Session.get('question').question, $('#answerA').text(), function (err, data) {
             Session.set('result', answerText(data));
         });
     },
     'click #answerB': function () {
-        Meteor.call('answer', Session.get('question').question, $('#answerB').text(), function(err, data){
+        Meteor.call('answer', Session.get('question').question, $('#answerB').text(), function (err, data) {
             Session.set('result', answerText(data));
         });
     },
-    'click #next': function() {
+    'click #next': function () {
         tmr && clearTimeout(tmr);
         nextQuestion();
     }

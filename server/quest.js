@@ -80,7 +80,7 @@ function nextQuestion(levelIndex) {
     var z = formulas[f](x, y);
 
     // Random detractor
-    var d =  formulas['~'](z);
+    var d = formulas['~'](z);
 
     var a = (d % 2) ? z : d;
     var b = (d % 2) ? d : z;
@@ -104,6 +104,7 @@ function nextQuestion(levelIndex) {
     }
 
     return {
+        level: levelIndexs[levelIndex],
         question: q.question,
         answers: q.answers
     };

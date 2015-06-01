@@ -1,31 +1,57 @@
 <head>
     <title>Math Train</title>
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
 </head>
 
 <body>
-<h3>Welcome to MathTrain!</h3>
-
 {{> question}}
 </body>
 
 <template name="question">
+    <div class="container">
 
-    {{#if question}}
+        {{#if question}}
 
-    <div>{{question.question}}</div>
-    <p>
-        <button id="answerA">{{question.answers.answerA}}</button>
-        <button id="answerB">{{question.answers.answerB}}</button>
-    </p>
+        <div class="row text-center">
+            <h3>Answer the question to upgrade your level</h3>
 
-    <p class="{{result}}">
-        {{#if result}}
-        Your answer is {{result}}.
+        </div>
+        <div class="row text-center">
+            <p>
+                Current level <span class="label label-success">{{question.level}}</span>
+            </p>
+
+            <p>
+                <span class="label label-info">{{question.question}}</span>
+            </p>
+
+
+        </div>
+
+
+        <div class="row text-center">
+            <button class="btn btn-default" id="answerA">{{question.answers.answerA}}</button>
+            <button class="btn btn-default" id="answerB">{{question.answers.answerB}}</button>
+        </div>
+
+        <div class="row text-center">
+
+            <p class="{{result}} text-info">
+                {{#if result}}
+                Your answer is {{result}}
+                {{else}}
+                <br>
+                {{/if}}
+            </p>
+
+            <button class="btn btn-default" id="next">Skip</button>
+        </div>
+
         {{else}}
-        <br>
+        <div class="row text-center">
+            <img src="client/demo.jpg" alt="demo"/>
+        </div>
         {{/if}}
-    </p>
 
-    <button id="next">Skip</button>
-    {{/if}}
+    </div>
 </template>
