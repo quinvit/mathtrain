@@ -1,11 +1,21 @@
-Meteor.call('next', function(err, data){
-    Session.set('question', data);
-});
+function nextQuestion() {
+    Meteor.call('next', function(err, data){
+        Session.set('question', data);
+        Session.set('result', null);
+    });
+}
+
+nextQuestion();
 
 function answerText(right) {
 
     if(right === null) {
         return null;
+    }
+
+    // Auto jump to next question after 3 seconds
+    if (right) {
+        setTimeout(nextQuestion, 2000);
     }
 
     return right ? 'correct' : 'incorrect';
@@ -32,10 +42,7 @@ Template.question.events({
         });
     },
     'click #next': function() {
-        Meteor.call('next', function(err, data){
-            Session.set('question', data);
-            Session.set('result', null);
-        });
+        nextQuestion();
     }
 });
 

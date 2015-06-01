@@ -15,7 +15,14 @@ function nextQuestion() {
     var y = getRandomInt(0, 100);
 
     var z = x + y;
-    var d = x + y + getRandomInt(-5, 5) * 10;
+    var i = getRandomInt(-5, 5);
+    // Not zero
+    i = (i === 0) ? 10 : i * 10;
+    // Not negative
+    i = (i + z <= 0) ? ~~i : i;
+
+    // Random detractor
+    var d = x + y + i;
     var a = (d % 2) ? z : d;
     var b = (d % 2) ? d : z;
 

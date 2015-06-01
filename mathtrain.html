@@ -9,6 +9,9 @@
 </body>
 
 <template name="question">
+
+    {{#if question}}
+
     <div>{{question.question}}</div>
     <p>
         <button id="answerA">{{question.answers.answerA}}</button>
@@ -21,4 +24,5 @@
     {{/if}}
 
     <button id="next">Next</button>
+    {{/if}}
 </template>
