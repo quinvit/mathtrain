@@ -1,14 +1,24 @@
 <head>
-  <title>mathtrain</title>
+    <title>mathtrain</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+<h1>Welcome to MathTrain!</h1>
 
-  {{> hello}}
+{{> question}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="question">
+    <div>{{question.question}}</div>
+    <p>
+        <button id="answerA">{{question.answers.answerA}}</button>
+        <button id="answerB">{{question.answers.answerB}}</button>
+    </p>
+    {{#if result}}
+    <p class="{{result}}">
+        Your answer is {{result}}.
+    </p>
+    {{/if}}
+
+    <button id="next">Next</button>
 </template>
