@@ -7,6 +7,8 @@ function nextQuestion() {
 
 nextQuestion();
 
+var tmr = 0;
+
 function answerText(right) {
 
     if(right === null) {
@@ -15,7 +17,7 @@ function answerText(right) {
 
     // Auto jump to next question after 3 seconds
     if (right) {
-        setTimeout(nextQuestion, 2000);
+        tmr = setTimeout(nextQuestion, 2000);
     }
 
     return right ? 'correct' : 'incorrect';
@@ -42,6 +44,7 @@ Template.question.events({
         });
     },
     'click #next': function() {
+        tmr && clearTimeout(tmr);
         nextQuestion();
     }
 });

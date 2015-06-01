@@ -1,9 +1,9 @@
 <head>
-    <title>mathtrain</title>
+    <title>Math Train</title>
 </head>
 
 <body>
-<h1>Welcome to MathTrain!</h1>
+<h3>Welcome to MathTrain!</h3>
 
 {{> question}}
 </body>
@@ -17,12 +17,13 @@
         <button id="answerA">{{question.answers.answerA}}</button>
         <button id="answerB">{{question.answers.answerB}}</button>
     </p>
-    {{#if result}}
-    <p class="{{result}}">
-        Your answer is {{result}}.
-    </p>
-    {{/if}}
 
-    <button id="next">Next</button>
+    <p class="{{result}}">
+        {{#if result}}
+        Your answer is {{result}}.
+        {{/if}}
+    </p>
+
+    <button id="next">Skip</button>
     {{/if}}
 </template>
