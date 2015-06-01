@@ -44,23 +44,23 @@ var formulas = {
 var levels = {
     'baby': {
         formulas: ['+', '-'],
-        max_number: 19,
-        min_number: 1
+        max_number: 10,
+        min_number: 0
     },
     'junior': {
         formulas: ['+', '-'],
-        max_number: 49,
-        min_number: 1
+        max_number: 100,
+        min_number: 10
     },
     'senior': {
         formulas: ['+', '-', '*', '/'],
-        max_number: 19,
-        min_number: 1
+        max_number: 100,
+        min_number: 10
     },
     'master': {
         formulas: ['+', '-', '*', '/'],
-        max_number: 49,
-        min_number: 1
+        max_number: 100,
+        min_number: 20
     }
 }
 
