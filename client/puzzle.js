@@ -12,7 +12,7 @@ function nextLevel() {
 
     // Best learning factor: 50%-85%
     // Min 10 answers and correct answer is higher than 85%
-    if (currentLevel < 2 && right > 5 && ((right / wrong) * 100 > 85)) {
+    if (currentLevel < 3 && right > 5 && ((right / wrong) * 100 > 85)) {
         // Improve one level
         currentLevel++;
         Session.set('level', currentLevel);

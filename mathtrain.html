@@ -1,6 +1,6 @@
 <head>
     <title>MathTrain</title>
-    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -13,17 +13,17 @@
         {{#if question}}
 
         <div class="row text-center">
-            <h3>Answer the question to upgrade your level</h3>
+            <h3>Answer correct > 85% to level up!</h3>
 
         </div>
         <div class="row text-center">
-            <h4>
+            <h3>
                 Current level <span class="label label-success">{{question.level}}</span>
-            </h4>
+            </h3>
 
-            <h4>
+            <h3>
                 <span class="label label-info">{{question.question}}</span>
-            </h4>
+            </h3>
 
 
         </div>
@@ -36,15 +36,15 @@
 
         <div class="row text-center">
 
-            <h4 class="{{result}} text-info">
+            <h3 class="{{result}} text-info">
                 {{#if result}}
                 Your answer is {{result}}
                 {{else}}
                 <br>
                 {{/if}}
-            </h4>
+            </h3>
 
-            <button class="btn btn-default" id="next">Skip</button>
+            <button class="btn btn-default" id="next"> >> </button>
         </div>
 
         {{else}}

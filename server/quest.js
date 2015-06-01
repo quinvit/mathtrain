@@ -32,12 +32,12 @@ var formulas = {
             var r = (Math.random() * 7);
             var test = (~~r) % 2;
 
-            r = r * 10;
+            r = ~~r * 10;
             r = (r === 0 || r > z) ? 10 : r;
             i = (test ? z + r : z - r) >> 0;
         }
 
-        return i === 0 ? 1 : i;
+        return i === 0 ? z + 1 : i;
     }
 };
 

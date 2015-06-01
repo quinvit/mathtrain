@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mathtrain.html" afterPath="$PROJECT_DIR$/mathtrain.html" />
-    </list>
+    <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="" />
     <ignored path="mathtrain.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -480,16 +478,16 @@
       <workItem from="1433002315102" duration="173000" />
       <workItem from="1433080297507" duration="701000" />
       <workItem from="1433148738374" duration="12128000" />
-      <workItem from="1433169157385" duration="11795000" />
+      <workItem from="1433169157385" duration="11823000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26453000" />
+    <option name="totallyTimeSpent" value="26481000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1400" height="970" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
