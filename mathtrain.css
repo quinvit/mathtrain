@@ -1,8 +1,55 @@
 /* CSS declarations go here */
+.title {
+    text-transform: lowercase;
+    font-family: monospace, monospace;
+    font-size: 22pt;
+    text-decoration: double;
+}
+
 .correct {
     color: green;
 }
 
 .incorrect {
     color: red;
+}
+
+.center {
+    text-align: center;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.centered-table {
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+    border-collapse: collapse;
+}
+
+.centered-table td {
+    padding: 2px;
+}
+
+.full {
+    width: 100%;
+}
+
+.half {
+    width: 50%;
+}
+
+.big-font {
+    font-size: 18pt;
+}
+
+.question {
+    font-size: 25pt;
+    color: #444;
+}
+
+.btn:hover {
+    color: orangered;
 }

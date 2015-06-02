@@ -42,10 +42,10 @@ var formulas = {
     '~': function (z) {
         var i = 1;
         if (z < 10) {
-            i = (Math.random() * z) >> 0;
+            i = (Math.random() * (z / 3)) >> 0;
         }
         else {
-            var r = (Math.random() * 7);
+            var r = (Math.random() * ~~(z / 10));
             var test = (~~r) % 2;
 
             r = ~~r * 10;

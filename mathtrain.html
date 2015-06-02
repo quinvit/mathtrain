@@ -1,6 +1,7 @@
 <head>
     <title>MathTrain</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="math, train, math train, learn math, kid learn math, learn calculation, fast calculation learning">
 </head>
 
 <body>
@@ -8,51 +9,80 @@
 </body>
 
 <template name="question">
-    <div class="container">
 
+    <!-- Make sure all your bars are the first things in your <body> -->
+    <header class="bar bar-nav">
+        <h1 class="title">
+            <img src="/images/logo.png" height="50pt" alt="Math Train" title="Math Train" />
+        </h1>
+    </header>
+
+    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
+    <div class="content">
         {{#if question}}
+        <div class="content-padded center">
 
-        <div class="row text-center">
-            <h3>More accurate more level up!</h3>
-
+            <table class="centered-table full">
+                <tr>
+                    <td colspan="2">
+                        <h3 class="question big-font">
+                            {{question.question}}
+                        </h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="half">
+                        <button class="btn btn-primary full big-font" id="answerA">{{question.answers.answerA}}</button>
+                    </td>
+                    <td class="half">
+                        <button class="btn btn-primary full big-font" id="answerB">{{question.answers.answerB}}</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="btn full big-font" id="next"><span class="icon icon-refresh"></span></button>
+                    </td>
+                </tr>
+            </table>
         </div>
-        <div class="row text-center">
-            <h3>
-                Current level <span class="label label-success">{{question.level}}</span>
-            </h3>
 
-            <h3>
-                <span class="label label-info">{{question.question}}</span>
-            </h3>
-        </div>
-
-
-        <div class="row text-center">
-            <button class="btn btn-default" id="answerA">{{question.answers.answerA}}</button>
-            <button class="btn btn-default" id="answerB">{{question.answers.answerB}}</button>
-        </div>
-
-        <div class="row text-center">
-
-            <h3 class="{{result}} text-info">
+        <div class="content-padded center">
+            <h4 class="{{result}}">
                 {{#if result}}
                 Your answer is {{result}}
                 {{else}}
                 <br>
                 {{/if}}
-            </h3>
-
-            <button class="btn btn-default" id="next"> >></button>
+            </h4>
         </div>
 
         {{else}}
-        <div class="row text-center">
+        <div class="content-padded center">
             <h3>
                 loading...
             </h3>
             <img src="/images/demo.jpg" alt="loading..." title="loading..."/>
         </div>
         {{/if}}
-
     </div>
+
+    <nav class="bar bar-tab">
+        <a class="tab-item active" href="#">
+            <span class="icon icon-home"></span>
+            <span class="tab-label">Home</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon icon-person"></span>
+            <span class="tab-label">Profile</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon icon-search"></span>
+            <span class="tab-label">Search</span>
+        </a>
+        <a class="tab-item" href="#">
+            <span class="icon icon-gear"></span>
+            <span class="tab-label">Settings</span>
+        </a>
+    </nav>
+
 </template>
