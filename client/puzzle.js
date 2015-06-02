@@ -1,4 +1,8 @@
+var tmr = 0;
+
 function nextQuestion() {
+    tmr && clearTimeout(tmr);
+
     Meteor.call('next', nextLevel(), function (err, data) {
         Session.set('question', data);
         Session.set('result', null);
@@ -35,8 +39,6 @@ function nextLevel() {
 }
 
 nextQuestion();
-
-var tmr = 0;
 
 function answerText(right) {
 
@@ -77,7 +79,6 @@ Template.question.events({
         });
     },
     'click #next': function () {
-        tmr && clearTimeout(tmr);
         nextQuestion();
     }
 });
