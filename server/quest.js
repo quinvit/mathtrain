@@ -7,21 +7,37 @@ var Questions = new Mongo.Collection("questions");
 Questions._ensureIndex({"question": 1});
 
 function getRandomInt(min, max) {
-    return ((Math.random() * (max - min)) + min) >> 0;
+    return ~~((Math.random() * (max - min)) + min);
 }
 
 var formulas = {
-    '+': function (x, y) {
-        return x + y;
+    '+': function (min, max) {
+        var x = getRandomInt(min, max);
+        var y = getRandomInt(min, max);
+
+        return [x, y, x + y];
     },
-    '-': function (x, y) {
-        return x - y;
+    '-': function (min, max) {
+        var x = getRandomInt(min, max);
+        var y = getRandomInt(min, max);
+
+        // x > y rule
+        x = (x < y || x === 0) ? y + 1 : x;
+
+        return [x, y, x - y];
     },
-    '*': function (x, y) {
-        return x * y;
+    '*': function (min, max) {
+        var x = getRandomInt(min, max);
+        var y = getRandomInt(min, max);
+
+        return [x, y, ~~(x * y)];
     },
-    '/': function (x, y) {
-        return x / y;
+    '/': function (min, max) {
+        var x = getRandomInt(min, max);
+        var y = getRandomInt(min, max);
+
+        // x % y = 0 rule
+        return [~~(x * y), y, x];
     },
     '~': function (z) {
         var i = 1;
@@ -34,7 +50,7 @@ var formulas = {
 
             r = ~~r * 10;
             r = (r === 0 || r > z) ? 10 : r;
-            i = (test ? z + r : z - r) >> 0;
+            i = ~~(test ? z + r : z - r);
         }
 
         return i === 0 ? z + 1 : i;
@@ -44,42 +60,84 @@ var formulas = {
 var levels = {
     'baby': {
         formulas: ['+', '-'],
-        max_number: 10,
-        min_number: 0
+        '+': {
+            max_number: 10,
+            min_number: 0
+        },
+        '-': {
+            max_number: 10,
+            min_number: 0
+        }
     },
     'junior': {
         formulas: ['+', '-'],
-        max_number: 100,
-        min_number: 10
+        '+': {
+            max_number: 50,
+            min_number: 10
+        },
+        '-': {
+            max_number: 50,
+            min_number: 10
+        }
     },
     'senior': {
         formulas: ['+', '-', '*', '/'],
-        max_number: 100,
-        min_number: 10
+        '+': {
+            max_number: 80,
+            min_number: 10
+        },
+        '-': {
+            max_number: 80,
+            min_number: 10
+        },
+        '*': {
+            max_number: 15,
+            min_number: 1
+        },
+        '/': {
+            max_number: 15,
+            min_number: 1
+        }
     },
     'master': {
         formulas: ['+', '-', '*', '/'],
-        max_number: 100,
-        min_number: 20
+        '+': {
+            max_number: 100,
+            min_number: 20
+        },
+        '-': {
+            max_number: 100,
+            min_number: 20
+        },
+        '*': {
+            max_number: 20,
+            min_number: 10
+        },
+        '/': {
+            max_number: 20,
+            min_number: 10
+        }
     }
 }
 
-var levelIndexs = ['baby', 'junior', 'senior', 'master'];
+var levelIndexes = ['baby', 'junior', 'senior', 'master'];
 
 function nextQuestion(levelIndex) {
 
-    var level = levels[levelIndexs[levelIndex]] || levels.baby;
+    var levelName = levelIndexes[levelIndex];
+    var level = levels[levelName] || levels.baby;
 
-    var x = getRandomInt(level.min_number, level.max_number);
-    var y = getRandomInt(level.min_number, level.max_number);
+    // Random operator
+    var f = level.formulas[getRandomInt(0, level.formulas.length)];
 
-    var fi = (Math.random() * (level.formulas.length - 1)) >> 0;
-    var f = level.formulas[fi];
+    // Generate factors base on operator
+    var factors = formulas[f](level[f].min_number, level[f].max_number);
 
-    // Pre-calculation
-    var z = formulas[f](x, y);
+    var x = factors[0];
+    var y = factors[1];
+    var z = factors[2];
 
-    // Random detractor
+    // Random detractor for answers
     var d = formulas['~'](z);
 
     var a = (d % 2) ? z : d;
@@ -94,8 +152,8 @@ function nextQuestion(levelIndex) {
         correct_answer: z
     };
 
+    // Store question for checking later
     var existingQuestion = Questions.find({question: q.question});
-
     if (!existingQuestion.question) {
         Questions.insert(q);
     }
@@ -104,7 +162,7 @@ function nextQuestion(levelIndex) {
     }
 
     return {
-        level: levelIndexs[levelIndex],
+        level: levelName,
         question: q.question,
         answers: q.answers
     };
