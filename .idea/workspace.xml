@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/quest.js" afterPath="$PROJECT_DIR$/server/quest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mathtrain.html" afterPath="$PROJECT_DIR$/mathtrain.html" />
     </list>
     <ignored path="mathtrain.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mathtrain.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mathtrain.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mathtrain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
+            <state vertical-scroll-proportion="0.5447942">
+              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -55,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quest.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="quest.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/quest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42203987">
-              <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -82,9 +81,9 @@
         <option value="$PROJECT_DIR$/client/question.js" />
         <option value="$PROJECT_DIR$/server/startup.js" />
         <option value="$PROJECT_DIR$/mathtrain.css" />
-        <option value="$PROJECT_DIR$/mathtrain.html" />
         <option value="$PROJECT_DIR$/client/puzzle.js" />
         <option value="$PROJECT_DIR$/server/quest.js" />
+        <option value="$PROJECT_DIR$/mathtrain.html" />
       </list>
     </option>
   </component>
@@ -483,12 +482,12 @@
       <workItem from="1433148738374" duration="12128000" />
       <workItem from="1433169157385" duration="11823000" />
       <workItem from="1433213642352" duration="1845000" />
-      <workItem from="1433220141255" duration="4586000" />
+      <workItem from="1433220141255" duration="4787000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32912000" />
+    <option name="totallyTimeSpent" value="33113000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1400" height="970" extended-state="6" />
@@ -720,14 +719,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mathtrain.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/puzzle.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -738,8 +729,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/quest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42203987">
-          <caret line="47" column="40" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mathtrain.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5447942">
+          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
           <folding />
         </state>
       </provider>
