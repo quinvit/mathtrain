@@ -25,7 +25,7 @@ function nextLevel() {
         Session.set('right', 0);
         Session.set('wrong', 0);
     }
-    else if (currentLevel > 1 && right > 5 && ((right / wrong) * 100 < 50)) {
+    else if (currentLevel >= 1 && wrong > 5 && ((right / wrong) * 100 < 50)) {
         // Down one level
         currentLevel--;
         Session.set('level', currentLevel);

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mathtrain.html" afterPath="$PROJECT_DIR$/mathtrain.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/puzzle.js" afterPath="$PROJECT_DIR$/client/puzzle.js" />
     </list>
     <ignored path="mathtrain.iws" />
@@ -25,11 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mathtrain.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mathtrain.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mathtrain.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7409201">
-              <caret line="52" column="74" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
+            <state vertical-scroll-proportion="-18.666666">
+              <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -45,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="puzzle.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="puzzle.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/puzzle.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.40093786">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -83,8 +82,8 @@
         <option value="$PROJECT_DIR$/server/startup.js" />
         <option value="$PROJECT_DIR$/mathtrain.css" />
         <option value="$PROJECT_DIR$/server/quest.js" />
-        <option value="$PROJECT_DIR$/client/puzzle.js" />
         <option value="$PROJECT_DIR$/mathtrain.html" />
+        <option value="$PROJECT_DIR$/client/puzzle.js" />
       </list>
     </option>
   </component>
@@ -482,15 +481,15 @@
       <workItem from="1433080297507" duration="701000" />
       <workItem from="1433148738374" duration="12128000" />
       <workItem from="1433169157385" duration="11823000" />
-      <workItem from="1433213642352" duration="328000" />
+      <workItem from="1433213642352" duration="1027000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26809000" />
+    <option name="totallyTimeSpent" value="27508000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="31" width="1400" height="970" extended-state="7" />
+    <frame x="0" y="31" width="1400" height="970" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -695,18 +694,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/puzzle.js">
+    <entry file="file://$PROJECT_DIR$/mathtrain.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        <state vertical-scroll-proportion="-18.666666">
+          <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mathtrain.html">
+    <entry file="file://$PROJECT_DIR$/client/puzzle.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7409201">
-          <caret line="52" column="74" selection-start-line="52" selection-start-column="74" selection-end-line="52" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.40093786">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
