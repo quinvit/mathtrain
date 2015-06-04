@@ -168,3 +168,4 @@ Progress.on('drain', function () {
     Puzzle.currentResult('timed out');
 });
 
+Progress.pause();
