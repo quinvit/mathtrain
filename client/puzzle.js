@@ -1,85 +1,170 @@
 var tmr = 0;
+Puzzle = {
+    nextChallenge: function () {
+        tmr && clearTimeout(tmr);
 
-function nextQuestion() {
-    tmr && clearTimeout(tmr);
+        Meteor.call('next', Puzzle.currentLevel(), function (err, challenge) {
+            Puzzle.currentChallenge(challenge);
+            Puzzle.currentResult(null);
+            Progress.reset();
+        });
+    },
+    pauseTime: 2000,
+    right: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('right', ~~value);
+        }
 
-    Meteor.call('next', nextLevel(), function (err, data) {
-        Session.set('question', data);
-        Session.set('result', null);
-    });
-}
+        return ~~Session.get('right');
+    },
+    wrong: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('wrong', ~~value);
+        }
 
-function nextLevel() {
-    var right = ~~Session.get('right');
-    var wrong = (~~Session.get('wrong') + 1);
-    var currentLevel = ~~Session.get('level');
+        return ~~Session.get('wrong');
+    },
+    playing: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('playing', !!value);
+        }
 
-    // Best learning factor: 50%-85%
-    // Min 10 answers and correct answer is higher than 85%
-    if (currentLevel < 3 && right > 5 && ((right / wrong) * 100 > 85)) {
-        // Improve one level
-        currentLevel++;
-        Session.set('level', currentLevel);
+        return !!Session.get('playing');
+    },
+    currentResult: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('currentResult', value);
+        }
 
-        // Reset counter
-        Session.set('right', 0);
-        Session.set('wrong', 0);
+        return Session.get('currentResult');
+    },
+    currentLevel: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('currentLevel', ~~value);
+        }
+
+        return ~~Session.get('currentLevel');
+    },
+    currentChallenge: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('currentChallenge', value);
+        }
+
+        return Session.get('currentChallenge');
+    },
+    welcomeText: function (value) {
+        if (typeof value != 'undefined') {
+            Session.set('welcomeText', value);
+        }
+
+        return Session.get('welcomeText');
+    },
+    checkLevel: function () {
+        var right = Puzzle.right();
+        var wrong = Puzzle.wrong();
+        var level = Puzzle.currentLevel();
+
+        // Best learning factor: 50%-85%
+        // Min 10 answers and correct answer is higher than 85%
+        if (level < 3 && right > 5 && ((right / wrong) * 100 > 85)) {
+            // Improve one level
+            Puzzle.currentLevel(++level);
+
+            // Reset counter
+            Puzzle.right(0);
+            Puzzle.wrong(0);
+        }
+        else if (level >= 1 && wrong > 5 && ((right / wrong) * 100 < 50)) {
+            // Down one level
+            // Improve one level
+            Puzzle.currentLevel(--level);
+
+            // Reset counter
+            Puzzle.right(0);
+            Puzzle.wrong(0);
+        }
+
+        return level;
+    },
+    checkAnswer: function (right) {
+        if (right === null) {
+            return null;
+        }
+
+        // Auto jump to next question after 3 seconds
+        if (right) {
+            Puzzle.right(Puzzle.right() + 1);
+        }
+        else {
+            Puzzle.wrong(Puzzle.wrong() + 1);
+        }
+
+        Puzzle.checkLevel();
+        Puzzle.currentResult(right ? 'correct' : 'incorrect');
+
+        Puzzle.next();
+    },
+    next: function () {
+        Progress.pause();
+        tmr = setTimeout(Puzzle.nextChallenge, Puzzle.pauseTime);
+    },
+    play: function () {
+        Puzzle.nextChallenge();
+        Puzzle.playing(true);
+    },
+    pause: function () {
+        tmr && clearTimeout(tmr);
+        Puzzle.playing(false);
+    },
+    stop: function () {
+        tmr && clearTimeout(tmr);
+        Puzzle.wrong(0);
+        Puzzle.right(0);
+        Puzzle.currentLevel(0);
+        Puzzle.playing(false);
     }
-    else if (currentLevel >= 1 && wrong > 5 && ((right / wrong) * 100 < 50)) {
-        // Down one level
-        currentLevel--;
-        Session.set('level', currentLevel);
-
-        // Reset counter
-        Session.set('right', 0);
-        Session.set('wrong', 0);
-    }
-
-    return currentLevel;
-}
-
-nextQuestion();
-
-function answerText(right) {
-
-    if (right === null) {
-        return null;
-    }
-
-    // Auto jump to next question after 3 seconds
-    if (right) {
-        tmr = setTimeout(nextQuestion, 2000);
-        Session.set('right', (~~Session.get('right') + 1));
-    }
-    else {
-        Session.set('wrong', (~~Session.get('wrong') + 1));
-    }
-
-    return right ? 'correct' : 'incorrect';
-}
+};
 
 Template.question.helpers({
-    question: function () {
-        return Session.get('question');
+    challenge: function () {
+        return Puzzle.currentChallenge();
     },
     result: function () {
-        return Session.get('result');
+        return Puzzle.currentResult();
+    },
+    playing: function () {
+        return Puzzle.playing();
     }
 });
 
 Template.question.events({
     'click #answerA': function () {
-        Meteor.call('answer', Session.get('question').question, $('#answerA').text(), function (err, data) {
-            Session.set('result', answerText(data));
+        Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerA').text(), function (err, status) {
+            Puzzle.checkAnswer(status);
         });
     },
     'click #answerB': function () {
-        Meteor.call('answer', Session.get('question').question, $('#answerB').text(), function (err, data) {
-            Session.set('result', answerText(data));
+        Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerB').text(), function (err, status) {
+            Puzzle.checkAnswer(status);
         });
     },
     'click #next': function () {
-        nextQuestion();
+        Puzzle.nextChallenge();
+    },
+    'click #pause': function () {
+        Puzzle.pause();
+    },
+    'click #stop': function () {
+        Puzzle.stop();
+    },
+    'click #play': function () {
+        Puzzle.play();
     }
+});
+
+Puzzle.welcomeText('Be quick don\'t be hurry');
+Progress.on('drain', function () {
+    Puzzle.next();
+    Puzzle.currentResult('timed out');
 });
 

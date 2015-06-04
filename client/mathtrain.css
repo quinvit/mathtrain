@@ -6,6 +6,10 @@
     text-decoration: double;
 }
 
+.section {
+    padding: 5px 0px 5px 0px;
+}
+
 .correct {
     color: green;
 }
@@ -16,6 +20,7 @@
 
 .center {
     text-align: center;
+    margin: 0 auto;
 }
 
 .justify {
@@ -52,4 +57,9 @@
 
 .btn:hover {
     color: orangered;
+}
+
+.cover {
+    width: 80%;
+    max-width: 300px;
 }

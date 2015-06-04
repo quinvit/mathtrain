@@ -22,7 +22,11 @@ var formulas = {
         var y = getRandomInt(min, max);
 
         // x > y rule
-        x = (x < y || x === 0) ? y + 1 : x;
+        if( x < y) {
+            var z = x;
+            x = y;
+            y = z;
+        }
 
         return [x, y, x - y];
     },
@@ -40,20 +44,16 @@ var formulas = {
         return [~~(x * y), y, x];
     },
     '~': function (z) {
-        var i = 1;
+        var i = 1, r = 0;
         if (z < 10) {
             i = (Math.random() * (z / 3)) >> 0;
         }
         else {
-            var r = (Math.random() * ~~(z / 10));
-            var test = (~~r) % 2;
-
-            r = ~~r * 10;
-            r = (r === 0 || r > z) ? 10 : r;
-            i = ~~(test ? z + r : z - r);
+            r = ([1, 3, 5, 10, 15])[getRandomInt(1, 5)];
+            i = z <= r ? z + r : z - r;
         }
 
-        return i === 0 ? z + 1 : i;
+        return i;
     }
 };
 
