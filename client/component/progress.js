@@ -3,7 +3,7 @@ ProgressClass = inherit([EventEmitter, {
         Progress.secProgress(0);
         Progress.paused = false;
     },
-    speed: 22,
+    speed: 25,
     paused: false,
     pause: function() {
         Progress.paused = true;
@@ -25,8 +25,7 @@ Meteor.setInterval(function () {
     }
 
     var progress = Progress.secProgress();
-    if(progress == 100) {
-        progress = 0;
+    if(progress == 99) {
         Progress.pause();
         return Progress.emit('drain');
     }

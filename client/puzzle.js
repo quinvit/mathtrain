@@ -151,6 +151,7 @@ Template.question.events({
             return;
         }
 
+	Progress.pause();
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerA').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
@@ -161,6 +162,7 @@ Template.question.events({
             return;
         }
 
+	Progress.pause();
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerB').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });

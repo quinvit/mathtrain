@@ -1,20 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/demo.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/images/logo.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/template/header.html" afterPath="$PROJECT_DIR$/client/template/header.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/mathtrain.css" afterPath="$PROJECT_DIR$/client/mathtrain.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/mathtrain.html" afterPath="$PROJECT_DIR$/client/mathtrain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/template/progress.html" afterPath="$PROJECT_DIR$/client/template/progress.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/component/progress.js" afterPath="$PROJECT_DIR$/client/component/progress.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/puzzle.js" afterPath="$PROJECT_DIR$/client/puzzle.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/quest.js" afterPath="$PROJECT_DIR$/server/quest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="" />
     <ignored path="mathtrain.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -605,16 +592,16 @@
       <workItem from="1433213642352" duration="1845000" />
       <workItem from="1433220141255" duration="16687000" />
       <workItem from="1433401691197" duration="9110000" />
-      <workItem from="1433413726583" duration="10765000" />
+      <workItem from="1433413726583" duration="11140000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64888000" />
+    <option name="totallyTimeSpent" value="65263000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1400" height="970" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
