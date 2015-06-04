@@ -6,16 +6,25 @@
     text-decoration: double;
 }
 
+.result {
+    text-transform: uppercase;
+    color: #ffaa44;
+}
+
+.bar-nav ~ .content {
+    padding-top: 88px;
+}
+
 .section {
     padding: 5px 0px 5px 0px;
 }
 
 .correct {
-    color: green;
+    color: #4499ee;
 }
 
 .incorrect {
-    color: red;
+    color: #ffaa44;
 }
 
 .center {
@@ -61,5 +70,13 @@
 
 .cover {
     width: 80%;
-    max-width: 300px;
+    max-width: 273px;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
 }

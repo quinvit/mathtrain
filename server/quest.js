@@ -15,6 +15,10 @@ var formulas = {
         var x = getRandomInt(min, max);
         var y = getRandomInt(min, max);
 
+        if (x === 0 && y === 0) {
+            return formulas['-'](min, max);
+        }
+
         return [x, y, x + y];
     },
     '-': function (min, max) {
@@ -28,11 +32,19 @@ var formulas = {
             y = z;
         }
 
+        if (x === 0 && y === 0) {
+            return formulas['-'](min, max);
+        }
+
         return [x, y, x - y];
     },
     '*': function (min, max) {
         var x = getRandomInt(min, max);
         var y = getRandomInt(min, max);
+
+        if (x === 0 && y === 0) {
+            return formulas['-'](min, max);
+        }
 
         return [x, y, ~~(x * y)];
     },
@@ -61,11 +73,11 @@ var levels = {
     'baby': {
         formulas: ['+', '-'],
         '+': {
-            max_number: 10,
+            max_number: 15,
             min_number: 0
         },
         '-': {
-            max_number: 10,
+            max_number: 15,
             min_number: 0
         }
     },
@@ -73,30 +85,30 @@ var levels = {
         formulas: ['+', '-'],
         '+': {
             max_number: 50,
-            min_number: 10
+            min_number: 15
         },
         '-': {
             max_number: 50,
-            min_number: 10
+            min_number: 15
         }
     },
     'senior': {
         formulas: ['+', '-', '*', '/'],
         '+': {
             max_number: 80,
-            min_number: 10
+            min_number: 25
         },
         '-': {
             max_number: 80,
-            min_number: 10
+            min_number: 25
         },
         '*': {
             max_number: 15,
-            min_number: 1
+            min_number: 2
         },
         '/': {
             max_number: 15,
-            min_number: 1
+            min_number: 2
         }
     },
     'master': {

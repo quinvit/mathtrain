@@ -3,7 +3,7 @@ ProgressClass = inherit([EventEmitter, {
         Progress.secProgress(0);
         Progress.paused = false;
     },
-    speed: 30,
+    speed: 22,
     paused: false,
     pause: function() {
         Progress.paused = true;

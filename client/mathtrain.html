@@ -10,7 +10,7 @@
 
 <template name="question">
 
-    {{> header}}
+    {{> header challenge}}
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
@@ -26,17 +26,17 @@
                 </tr>
                 <tr>
                     <td class="half">
-                        <button class="btn btn-primary full big-font" id="answerA">{{challenge.answers.answerA}}</button>
+                        <button disabled="{{waiting}}" class="btn full big-font" id="answerA">{{challenge.answers.answerA}}</button>
                     </td>
                     <td class="half">
-                        <button class="btn btn-primary full big-font" id="answerB">{{challenge.answers.answerB}}</button>
+                        <button disabled="{{wating}}" class="btn full big-font" id="answerB">{{challenge.answers.answerB}}</button>
                     </td>
                 </tr>
             </table>
         </div>
 
         <div class="content-padded center section">
-            <h4 class="{{result}}">
+            <h4 class="result {{result}}">
                 {{#if result}}
                 {{result}}
                 {{else}}
@@ -52,7 +52,7 @@
             <h3>
                 {{welcome}}
             </h3>
-            <img src="/images/demo.jpg" alt="{{welcome}}" title="{{welcome}}" class="cover"/>
+            <img src="/images/background.jpg" alt="{{welcome}}" title="{{welcome}}" class="cover"/>
         </div>
         {{/if}}
 
@@ -61,7 +61,6 @@
                 <button class="btn big-font" id="play"><span class="icon icon-play"></span></button>
                 <button class="btn big-font" id="pause"><span class="icon icon-pause"></span></button>
                 <button class="btn big-font" id="stop"><span class="icon icon-stop"></span></button>
-                <button class="btn big-font" id="next"><span class="icon icon-refresh"></span></button>
             </h2>
         </div>
     </div>

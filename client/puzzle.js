@@ -9,7 +9,7 @@ Puzzle = {
             Progress.reset();
         });
     },
-    pauseTime: 2000,
+    pauseTime: 1000,
     right: function (value) {
         if (typeof value != 'undefined') {
             Session.set('right', ~~value);
@@ -73,8 +73,9 @@ Puzzle = {
             // Reset counter
             Puzzle.right(0);
             Puzzle.wrong(0);
+
         }
-        else if (level >= 1 && wrong > 5 && ((right / wrong) * 100 < 50)) {
+        else if (level >= 1 && wrong > 2 && ((right / wrong) * 100 < 50)) {
             // Down one level
             // Improve one level
             Puzzle.currentLevel(--level);
@@ -104,9 +105,9 @@ Puzzle = {
 
         Puzzle.next();
     },
-    next: function () {
+    next: function (time) {
         Progress.pause();
-        tmr = setTimeout(Puzzle.nextChallenge, Puzzle.pauseTime);
+        tmr = setTimeout(Puzzle.nextChallenge, time || Puzzle.pauseTime);
     },
     play: function () {
         Puzzle.nextChallenge();
@@ -132,6 +133,12 @@ Template.question.helpers({
     result: function () {
         return Puzzle.currentResult();
     },
+    waiting: function () {
+        return Puzzle.currentResult() != null;
+    },
+    level: function() {
+        return Puzzle.currentLevel();
+    },
     playing: function () {
         return Puzzle.playing();
     }
@@ -139,11 +146,21 @@ Template.question.helpers({
 
 Template.question.events({
     'click #answerA': function () {
+
+        if(Puzzle.currentResult()) {
+            return;
+        }
+
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerA').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
     },
     'click #answerB': function () {
+
+        if(Puzzle.currentResult()) {
+            return;
+        }
+
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerB').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
@@ -164,7 +181,7 @@ Template.question.events({
 
 Puzzle.welcomeText('Be quick don\'t be hurry');
 Progress.on('drain', function () {
-    Puzzle.next();
+    Puzzle.next(Puzzle.pauseTime * 2);
     Puzzle.currentResult('timed out');
 });
 
