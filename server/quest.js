@@ -56,7 +56,7 @@ var formulas = {
         return [~~(x * y), y, x];
     },
     '~': function (z) {
-        var i = 1, r = 0;
+        var i = 1;
         if (z < 10) {
             i = (Math.random() * (z / 3)) >> 0;
         }
@@ -66,7 +66,7 @@ var formulas = {
             i = z <= d ? z + d : z - d;
         }
 
-        return i;
+        return i == 0 ? getRandomInt(1, 10) : i;
     }
 };
 
@@ -75,7 +75,7 @@ var levels = {
         formulas: ['+', '-'],
         '+': {
             max_number: 15,
-            min_number: 0
+            min_number: 1
         },
         '-': {
             max_number: 15,
@@ -157,7 +157,7 @@ var levelIndexes = ['beginner', 'junior', 'senior', 'master', 'super'];
 function nextQuestion(levelIndex) {
 
     var levelName = levelIndexes[levelIndex];
-    var level = levels[levelName] || levels.baby;
+    var level = levels[levelName] || levels.beginner;
 
     // Random operator
     var f = level.formulas[getRandomInt(0, level.formulas.length)];
