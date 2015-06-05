@@ -61,8 +61,9 @@ var formulas = {
             i = (Math.random() * (z / 3)) >> 0;
         }
         else {
-            r = ([1, 3, 5, 10, 15])[getRandomInt(1, 5)];
-            i = z <= r ? z + r : z - r;
+            var d = ~(z / 10);
+            d = d < 1 ? ([1, 3, 5])[getRandomInt(0, 2)] : ~~(d/2 * 10);
+            i = z <= d ? z + d : z - d;
         }
 
         return i;
@@ -70,7 +71,7 @@ var formulas = {
 };
 
 var levels = {
-    'baby': {
+    'beginner': {
         formulas: ['+', '-'],
         '+': {
             max_number: 15,
@@ -129,10 +130,29 @@ var levels = {
             max_number: 20,
             min_number: 10
         }
+    },
+    'super': {
+        formulas: ['+', '-', '*', '/'],
+        '+': {
+            max_number: 150,
+            min_number: 50
+        },
+        '-': {
+            max_number: 150,
+            min_number: 50
+        },
+        '*': {
+            max_number: 50,
+            min_number: 20
+        },
+        '/': {
+            max_number: 50,
+            min_number: 20
+        }
     }
 }
 
-var levelIndexes = ['baby', 'junior', 'senior', 'master'];
+var levelIndexes = ['beginner', 'junior', 'senior', 'master', 'super'];
 
 function nextQuestion(levelIndex) {
 
