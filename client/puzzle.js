@@ -130,12 +130,6 @@ Template.question.helpers({
     challenge: function () {
         return Puzzle.currentChallenge();
     },
-    result: function () {
-        return Puzzle.currentResult();
-    },
-    waiting: function () {
-        return Puzzle.currentResult() != null;
-    },
     level: function() {
         return Puzzle.currentLevel();
     },
@@ -144,14 +138,27 @@ Template.question.helpers({
     }
 });
 
-Template.question.events({
+
+Template.content.helpers({
+    challenge: function () {
+        return Puzzle.currentChallenge();
+    },
+    result: function () {
+        return Puzzle.currentResult();
+    },
+    waiting: function () {
+        return Puzzle.currentResult() != null;
+    }
+});
+
+Template.content.events({
     'click #answerA': function () {
 
         if(Puzzle.currentResult()) {
             return;
         }
 
-	Progress.pause();
+        Progress.pause();
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerA').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
@@ -162,11 +169,14 @@ Template.question.events({
             return;
         }
 
-	Progress.pause();
+        Progress.pause();
         Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerB').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
-    },
+    }
+});
+
+Template.control.events({
     'click #next': function () {
         Puzzle.nextChallenge();
     },

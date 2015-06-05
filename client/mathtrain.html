@@ -5,48 +5,17 @@
 </head>
 
 <body>
-{{> question}}
+{{> question }}
 </body>
 
 <template name="question">
 
-    {{> header challenge}}
+    {{> header challenge }}
 
     <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
         {{#if playing}}
-        <div class="content-padded center section">
-            <table class="centered-table full">
-                <tr>
-                    <td colspan="2">
-                        <h3 class="question big-font">
-                            {{challenge.question}}
-                        </h3>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="half">
-                        <button disabled="{{waiting}}" class="btn full big-font" id="answerA">{{challenge.answers.answerA}}</button>
-                    </td>
-                    <td class="half">
-                        <button disabled="{{wating}}" class="btn full big-font" id="answerB">{{challenge.answers.answerB}}</button>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div class="content-padded center section">
-            <h4 class="result {{result}}">
-                {{#if result}}
-                {{result}}
-                {{else}}
-                <br>
-                {{/if}}
-            </h4>
-
-            {{> progress}}
-        </div>
-
+        {{> content }}
         {{else}}
         <div class="content-padded center section">
             <h3>
@@ -56,15 +25,9 @@
         </div>
         {{/if}}
 
-        <div class="content-padded center section">
-            <h2>
-                <button class="btn big-font" id="play"><span class="icon icon-play"></span></button>
-                <button class="btn big-font" id="pause"><span class="icon icon-pause"></span></button>
-                <button class="btn big-font" id="stop"><span class="icon icon-stop"></span></button>
-            </h2>
-        </div>
+        {{> control }}
     </div>
 
-    {{> footer}}
+    {{> footer }}
 
 </template>
