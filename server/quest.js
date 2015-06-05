@@ -16,7 +16,7 @@ var formulas = {
         var y = getRandomInt(min, max);
 
         if (x === 0 && y === 0) {
-            return formulas['-'](min, max);
+            return formulas['+'](min, max);
         }
 
         return [x, y, x + y];
@@ -43,7 +43,7 @@ var formulas = {
         var y = getRandomInt(min, max);
 
         if (x === 0 && y === 0) {
-            return formulas['-'](min, max);
+            return formulas['*'](min, max);
         }
 
         return [x, y, ~~(x * y)];

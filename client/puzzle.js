@@ -138,7 +138,6 @@ Template.question.helpers({
     }
 });
 
-
 Template.content.helpers({
     challenge: function () {
         return Puzzle.currentChallenge();
@@ -192,6 +191,7 @@ Template.control.events({
 });
 
 Puzzle.welcomeText('Be quick don\'t be hurry');
+
 Progress.on('drain', function () {
     Puzzle.next(Puzzle.pauseTime * 2);
     Puzzle.currentResult('timed out');
