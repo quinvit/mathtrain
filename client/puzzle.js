@@ -1,4 +1,6 @@
 var tmr = 0;
+var deadCount = 0;
+
 Puzzle = {
     nextChallenge: function () {
         tmr && clearTimeout(tmr);
@@ -66,7 +68,7 @@ Puzzle = {
 
         // Best learning factor: 50%-85%
         // Min 10 answers and correct answer is higher than 85%
-        if (level < 3 && right > 5 && ((right / wrong) * 100 > 85)) {
+        if (level < 3 && right > 10 && ((right / wrong) * 100 > 85)) {
             // Improve one level
             Puzzle.currentLevel(++level);
 
@@ -98,6 +100,30 @@ Puzzle = {
         }
         else {
             Puzzle.wrong(Puzzle.wrong() + 1);
+
+            deadCount++;
+
+            if(deadCount > 10) {
+                Puzzle.pause();
+
+                new Confirmation({
+                    message: "There are too much wrong answers. You better take some rest.",
+                    title: "Confirmation",
+                    cancelText: "Cancel",
+                    okText: "Ok",
+                    success: true // whether the button should be green or red
+                }, function (ok) {
+                    // ok is true if the user clicked on "ok", false otherwise
+                    if(ok) {
+                        Puzzle.stop();
+                    }
+                    else {
+                        Puzzle.play();
+                    }
+                });
+
+                deadCount = 0;
+            }
         }
 
         Puzzle.checkLevel();
