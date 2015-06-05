@@ -63,6 +63,7 @@ var formulas = {
         else {
             var d = ~(z / 10);
             d = d < 1 ? ([1, 3, 5])[getRandomInt(0, 2)] : ~~(d/2 * 10);
+            d = d == 0 ? getRandomInt(1, 10) : d;
             i = z <= d ? z + d : z - d;
         }
 
