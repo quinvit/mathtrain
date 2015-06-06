@@ -100,30 +100,7 @@ Puzzle = {
         }
         else {
             Puzzle.wrong(Puzzle.wrong() + 1);
-
             deadCount++;
-
-            if(deadCount > 10) {
-                Puzzle.pause();
-
-                new Confirmation({
-                    message: "There are too much wrong answers. You better take some rest.",
-                    title: "Confirmation",
-                    cancelText: "Cancel",
-                    okText: "Ok",
-                    success: true // whether the button should be green or red
-                }, function (ok) {
-                    // ok is true if the user clicked on "ok", false otherwise
-                    if(ok) {
-                        Puzzle.stop();
-                    }
-                    else {
-                        Puzzle.play();
-                    }
-                });
-
-                deadCount = 0;
-            }
         }
 
         Puzzle.checkLevel();
@@ -141,6 +118,7 @@ Puzzle = {
     },
     pause: function () {
         tmr && clearTimeout(tmr);
+        Progress.stop();
         Puzzle.playing(false);
     },
     stop: function () {
@@ -149,6 +127,7 @@ Puzzle = {
         Puzzle.right(0);
         Puzzle.currentLevel(0);
         Puzzle.playing(false);
+        Progress.stop();
     }
 };
 
@@ -159,6 +138,12 @@ Template.question.helpers({
     level: function() {
         return Puzzle.currentLevel();
     },
+    playing: function () {
+        return Puzzle.playing();
+    }
+});
+
+Template.control.helpers({
     playing: function () {
         return Puzzle.playing();
     }

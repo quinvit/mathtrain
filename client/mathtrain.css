@@ -56,7 +56,7 @@
 }
 
 .big-font {
-    font-size: 18pt;
+    font-size: 20pt;
 }
 
 .question {
@@ -65,12 +65,22 @@
 }
 
 .btn:hover {
-    color: orangered;
+    color: orange;
 }
 
 .cover {
     width: 80%;
-    max-width: 273px;
+    max-width: 300px;
+}
+
+.progress-bar {
+    width: 80%;
+    max-width: 200px;
+    max-height: 220px;
+}
+
+.progressbar-text {
+    font-size: 18pt;
 }
 
 .visible {
