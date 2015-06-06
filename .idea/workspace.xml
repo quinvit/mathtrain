@@ -68,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/server/quest.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.50644785">
-              <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+              <caret line="60" column="52" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -643,12 +643,12 @@
       <workItem from="1433470000965" duration="1330000" />
       <workItem from="1433480442219" duration="1054000" />
       <workItem from="1433497063518" duration="5746000" />
-      <workItem from="1433558599217" duration="750000" />
+      <workItem from="1433558599217" duration="927000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75757000" />
+    <option name="totallyTimeSpent" value="75934000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1400" height="970" extended-state="6" />
@@ -1095,7 +1095,7 @@
     <entry file="file://$PROJECT_DIR$/server/quest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.50644785">
-          <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
+          <caret line="60" column="52" selection-start-line="60" selection-start-column="52" selection-end-line="60" selection-end-column="52" />
           <folding />
         </state>
       </provider>

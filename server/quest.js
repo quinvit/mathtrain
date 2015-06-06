@@ -58,7 +58,7 @@ var formulas = {
     '~': function (z) {
         var i = 1;
         if (z < 10) {
-            i = getRandomInt(1, 10) + ~z / 2;
+            i = getRandomInt(1, 10) + ~~ (z / 2) + 1;
         }
         else {
             var d = ~(z / 10);
