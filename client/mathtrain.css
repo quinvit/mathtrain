@@ -74,12 +74,14 @@
 
 .cover {
     width: 80%;
-    max-width: 300px;
+    max-width: 200px;
+    max-height: 400px;
 }
 
 .progress-bar {
     width: 80%;
     max-width: 200px;
+    max-height: 200px;
 }
 
 .progressbar-text {
