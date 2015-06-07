@@ -12,11 +12,11 @@
 }
 
 .bar-nav ~ .content {
-    padding-top: 88px;
+    padding-top: 80pt;
 }
 
 .logo {
-    height: 77px;
+    height: 70pt;
 }
 
 .section {
@@ -75,13 +75,18 @@
 .cover {
     width: 80%;
     max-width: 200px;
-    max-height: 400px;
+    max-height: 200px;
+}
+
+.cover-image {
+    width: 80%;
+    height: auto;
 }
 
 .progress-bar {
-    width: 80%;
-    max-width: 200px;
-    max-height: 200px;
+    width: 60%;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .progressbar-text {

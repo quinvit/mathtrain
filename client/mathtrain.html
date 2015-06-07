@@ -14,19 +14,21 @@
 
     {{> header challenge }}
 
-    <!-- Wrap all non-bar HTML in the .content div (this is actually what scrolls) -->
     <div class="content">
         {{#if playing}}
         {{> content }}
         {{else}}
-        <div class="content-padded center section half">
-            <h3>
-                {{welcome}}
-            </h3>
-            <img src="/images/background.jpg" alt="{{welcome}}" title="{{welcome}}" class="cover"/>
+        <div class="content-padded center section">
+            <div class="cover center">
+                <h3>
+                    {{welcome}}
+                </h3>
+                <img src="/images/background.jpg" alt="{{welcome}}" title="{{welcome}}" class="cover-image"/>
+            </div>
         </div>
         {{/if}}
 
+        <div style="clear: both"></div>
         {{> control }}
     </div>
 
