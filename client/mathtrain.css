@@ -50,10 +50,6 @@
     color: #444;
 }
 
-.result, .question {
-    padding: 2px 0px 2px 0px;
-}
-
 .btn:hover {
     color: orange;
 }
@@ -73,13 +69,13 @@
 
 @media all
 and (min-device-width: 736px) {
-    .cover {
+    div .cover {
         width: 70%;
         max-width: 300px;
         max-height: 300px;
     }
 
-    .progress-bar {
+    div .progress-bar {
         width: 50%;
         max-width: 150px;
         max-height: 150px;
@@ -89,12 +85,12 @@ and (min-device-width: 736px) {
         padding-top: 50pt;
     }
 
-    .big-font, .result {
-        font-size: 15pt;
+    div .big-font, div .result {
+        font-size: 18pt;
     }
 
     .progressbar-text {
-        font-size: 15pt;
+        font-size: 18pt;
     }
 
     .logo {
@@ -102,6 +98,10 @@ and (min-device-width: 736px) {
     }
 
     .section {
+        padding: 15px 0px 15px 0px;
+    }
+
+    .result, .question {
         padding: 5px 0px 5px 0px;
     }
 }
