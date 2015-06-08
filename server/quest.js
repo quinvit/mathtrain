@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    Questions.remove({});
+    // Questions.remove({});
     nextQuestion();
 });
 

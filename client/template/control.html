@@ -1,12 +1,10 @@
 <template name="control">
     <div class="content-padded center section">
-        <h2>
-            {{#if playing}}
-            <button class="btn big-font btn-positive btn-outlined" id="pause"><span class="icon icon-pause"></span></button>
-            <button class="btn big-font btn-negative btn-outlined" id="stop"><span class="icon icon-stop"></span></button>
-            {{else}}
-            <button class="btn big-font btn-primary btn-outlined" id="play"><span class="icon icon-play"></span></button>
-            {{/if}}
-        </h2>
+        {{#if playing}}
+        <button class="btn btn-positive btn-outlined big-font" id="pause"><span class="icon icon-pause"></span></button>
+        <button class="btn btn-negative btn-outlined big-font" id="stop"><span class="icon icon-stop"></span></button>
+        {{else}}
+        <button class="btn btn-primary btn-outlined big-font" id="play"><span class="icon icon-play"></span></button>
+        {{/if}}
     </div>
 </template>

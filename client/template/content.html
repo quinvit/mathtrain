@@ -3,30 +3,34 @@
         <table class="centered-table full">
             <tr>
                 <td colspan="2">
-                    <h3 class="question big-font">
+                    <div class="question big-font">
                         {{challenge.question}}
-                    </h3>
+                    </div>
                 </td>
             </tr>
             <tr>
                 <td class="half">
-                    <a disabled="{{waiting}}" id="answerA"><span class="btn btn-positive full big-font">{{challenge.answers.answerA}}</span></a>
+                    <a disabled="{{waiting}}" id="answerA">
+                        <span class="btn btn-positive full big-font">{{challenge.answers.answerA}}</span>
+                    </a>
                 </td>
                 <td class="half">
-                    <a disabled="{{waiting}}" id="answerB"><span class="btn btn-primary full big-font">{{challenge.answers.answerB}}</span></a>
+                    <a disabled="{{waiting}}" id="answerB">
+                        <span class="btn btn-primary full big-font">{{challenge.answers.answerB}}</span>
+                    </a>
                 </td>
             </tr>
         </table>
     </div>
 
     <div class="content-padded center section">
-        <h4 class="result {{result}}">
+        <div class="result {{result}}">
             {{#if result}}
             {{result}}
             {{else}}
             <br>
             {{/if}}
-        </h4>
+        </div>
 
         {{> progress}}
     </div>
