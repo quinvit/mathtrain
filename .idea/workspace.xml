@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0de424c-1e29-4118-a8c2-77350b51b79a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/public/css/responsive.css" afterPath="$PROJECT_DIR$/client/css/responsive.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/mathtrain.css" afterPath="$PROJECT_DIR$/client/mathtrain.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/mathtrain.html" afterPath="$PROJECT_DIR$/client/mathtrain.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/css/responsive.css" afterPath="$PROJECT_DIR$/client/css/responsive.css" />
     </list>
     <ignored path="mathtrain.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="responsive.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/client/css/responsive.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.0187573">
-              <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.6119578">
+              <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -651,12 +648,12 @@
       <workItem from="1433665602080" duration="5505000" />
       <workItem from="1433687716419" duration="3562000" />
       <workItem from="1433728957944" duration="1543000" />
-      <workItem from="1433731130018" duration="19368000" />
+      <workItem from="1433731130018" duration="20219000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120800000" />
+    <option name="totallyTimeSpent" value="121651000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1400" height="970" extended-state="6" />
@@ -1111,8 +1108,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/css/responsive.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0187573">
-          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.6119578">
+          <caret line="29" column="21" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="21" />
           <folding />
         </state>
       </provider>

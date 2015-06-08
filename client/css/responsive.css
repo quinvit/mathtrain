@@ -2,58 +2,14 @@
 
 /* Portrait and Landscape */
 @media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px) {
+and (max-device-width: 320px) {
 
 }
 
 /* Portrait */
 @media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px)
+and (max-device-width: 320px)
 and (orientation: portrait) {
-    div .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
-    }
-
-    div .progress-bar {
-        width: 30%;
-        max-width: 60px;
-        max-height: 60px;
-    }
-
-    .bar-nav ~ .content {
-        padding-top: 40pt;
-    }
-
-    div .big-font, div .result {
-        font-size: 15pt;
-    }
-
-    .progressbar-text {
-        font-size: 15pt;
-    }
-
-    .logo {
-        height: 40pt;
-    }
-
-    .section {
-        padding: 10px 0px 10px 0px;
-    }
-
-    .result, .question {
-        padding: 5px 0px 5px 0px;
-    }
-}
-
-/* Landscape */
-@media only screen
-and (min-device-width: 320px)
-and (max-device-width: 480px)
-and (orientation: landscape) {
     div .cover {
         width: 50%;
         max-width: 150px;
@@ -67,23 +23,64 @@ and (orientation: landscape) {
     }
 
     .bar-nav ~ .content {
-        padding-top: 40pt;
+        padding-top: 20pt;
     }
 
     div .big-font, div .result {
-        font-size: 15pt;
+        font-size: 12pt;
     }
 
     .progressbar-text {
-        font-size: 15pt;
+        font-size: 12pt;
     }
 
     .logo {
-        height: 40pt;
+        height: 20pt;
     }
 
     .section {
         padding: 5px 0px 5px 0px;
+    }
+
+    .result, .question {
+        padding: 2px 0px 2px 0px;
+    }
+}
+
+/* Landscape */
+@media only screen
+and (max-device-width: 320px)
+and (orientation: landscape) {
+    div .cover {
+        width: 50%;
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    div .progress-bar {
+        width: 30%;
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .bar-nav ~ .content {
+        padding-top: 20pt;
+    }
+
+    div .big-font, div .result {
+        font-size: 12pt;
+    }
+
+    .progressbar-text {
+        font-size: 12pt;
+    }
+
+    .logo {
+        height: 20pt;
+    }
+
+    .section {
+        padding: 2px 0px 2px 0px;
     }
 
     .result, .question {
