@@ -92,7 +92,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -198,7 +198,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -218,19 +218,19 @@ and (min-device-width: 375px)
 and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -242,7 +242,11 @@ and (-webkit-min-device-pixel-ratio: 2) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -253,19 +257,19 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: portrait) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -277,7 +281,11 @@ and (orientation: portrait) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -304,7 +312,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -313,6 +321,10 @@ and (orientation: landscape) {
 
     .logo {
         height: 30pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -324,59 +336,19 @@ and (min-device-width: 414px)
 and (max-device-width: 736px)
 and (-webkit-min-device-pixel-ratio: 3) {
     .cover {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 10%;
-        max-width: 30px;
-        max-height: 30px;
-    }
-
-    .bar-nav ~ .content {
-        padding-top: 30pt;
-    }
-
-    .big-font .result {
-        font-size: 10pt;
-    }
-
-    .question {
-        font-size: 10pt;
-        color: #444;
-    }
-
-    .progressbar-text {
-        font-size: 10pt;
-    }
-
-    .logo {
-        height: 30pt;
-    }
-}
-
-/* Portrait */
-@media only screen
-and (min-device-width: 414px)
-and (max-device-width: 736px)
-and (-webkit-min-device-pixel-ratio: 3)
-and (orientation: portrait) {
-    .cover {
         width: 50%;
-        max-width: 250px;
-        max-height: 250px;
-    }
-
-    .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -388,7 +360,50 @@ and (orientation: portrait) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
+    }
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 414px)
+and (max-device-width: 736px)
+and (-webkit-min-device-pixel-ratio: 3)
+and (orientation: portrait) {
+    .cover {
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .progress-bar {
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .bar-nav ~ .content {
+        padding-top: 50pt;
+    }
+
+    .big-font, .result {
+        font-size: 18pt;
+    }
+
+    .progressbar-text {
+        font-size: 18pt;
+    }
+
+    .logo {
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -415,7 +430,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -435,19 +450,19 @@ and (device-width: 320px)
 and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 2) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -459,7 +474,11 @@ and (-webkit-device-pixel-ratio: 2) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -470,19 +489,19 @@ and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 2)
 and (orientation: portrait) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -494,7 +513,11 @@ and (orientation: portrait) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -521,7 +544,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -541,19 +564,19 @@ and (device-width: 320px)
 and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -565,7 +588,11 @@ and (-webkit-device-pixel-ratio: 3) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -576,19 +603,19 @@ and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -600,7 +627,11 @@ and (orientation: portrait) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -627,7 +658,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -636,6 +667,10 @@ and (orientation: landscape) {
 
     .logo {
         height: 30pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -647,19 +682,19 @@ and (device-width: 360px)
 and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -671,7 +706,11 @@ and (-webkit-device-pixel-ratio: 3) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -682,19 +721,19 @@ and (device-height: 640px)
 and (-webkit-device-pixel-ratio: 3)
 and (orientation: portrait) {
     .cover {
-        width: 50%;
-        max-width: 250px;
-        max-height: 250px;
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
     }
 
     .progress-bar {
-        width: 30%;
-        max-width: 90px;
-        max-height: 90px;
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
     }
 
     .bar-nav ~ .content {
-        padding-top: 30pt;
+        padding-top: 50pt;
     }
 
     .big-font, .result {
@@ -706,7 +745,11 @@ and (orientation: portrait) {
     }
 
     .logo {
-        height: 30pt;
+        height: 50pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }
 
@@ -733,7 +776,7 @@ and (orientation: landscape) {
     }
 
     .big-font, .result {
-        font-size: 18pt;
+        font-size: 15pt;
     }
 
     .progressbar-text {
@@ -742,5 +785,9 @@ and (orientation: landscape) {
 
     .logo {
         height: 30pt;
+    }
+
+    .section {
+        padding: 15px 0px 15px 0px;
     }
 }

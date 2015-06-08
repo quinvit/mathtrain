@@ -1,4 +1,3 @@
-/* CSS declarations go here */
 .title {
     text-transform: lowercase;
     font-family: monospace, monospace;
@@ -9,18 +8,6 @@
 .result {
     text-transform: uppercase;
     color: #ffaa44;
-}
-
-.bar-nav ~ .content {
-    padding-top: 80pt;
-}
-
-.logo {
-    height: 70pt;
-}
-
-.section {
-    padding: 5px 0px 5px 0px;
 }
 
 .correct {
@@ -59,12 +46,12 @@
     width: 50%;
 }
 
-.big-font {
-    font-size: 20pt;
-}
-
 .question {
     color: #444;
+}
+
+.result, .question {
+    padding: 5px 0px 5px 0px;
 }
 
 .btn:hover {
@@ -72,24 +59,35 @@
 }
 
 .cover {
-    width: 80%;
-    max-width: 200px;
-    max-height: 200px;
-}
-
-.cover-image {
-    width: 80%;
-    height: auto;
+    width: 70%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .progress-bar {
-    width: 60%;
+    width: 50%;
     max-width: 150px;
     max-height: 150px;
 }
 
+.bar-nav ~ .content {
+    padding-top: 50pt;
+}
+
+.big-font, .result {
+    font-size: 18pt;
+}
+
 .progressbar-text {
     font-size: 18pt;
+}
+
+.logo {
+    height: 50pt;
+}
+
+.section {
+    padding: 15px 0px 15px 0px;
 }
 
 .visible {
@@ -98,4 +96,9 @@
 
 .hidden {
     visibility: hidden;
+}
+
+.cover-image {
+    width: 100%;
+    height: auto;
 }
