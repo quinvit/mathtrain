@@ -3,8 +3,8 @@
         <table class="centered-table full">
             <tr>
                 <td colspan="2">
-                    <div class="question big-font">
-                        {{challenge.question}}
+                    <div class="question">
+                        <span class="big-font">{{challenge.question}}</span>
                     </div>
                 </td>
             </tr>
@@ -24,13 +24,13 @@
     </div>
 
     <div class="content-padded center section">
-        <div class="result {{result}}">
+        <span class="result {{result}}">
             {{#if result}}
             {{result}}
             {{else}}
             <br>
             {{/if}}
-        </div>
+        </span>
 
         {{> progress}}
     </div>

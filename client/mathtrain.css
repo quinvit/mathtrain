@@ -51,43 +51,11 @@
 }
 
 .result, .question {
-    padding: 5px 0px 5px 0px;
+    padding: 2px 0px 2px 0px;
 }
 
 .btn:hover {
     color: orange;
-}
-
-.cover {
-    width: 70%;
-    max-width: 300px;
-    max-height: 300px;
-}
-
-.progress-bar {
-    width: 50%;
-    max-width: 150px;
-    max-height: 150px;
-}
-
-.bar-nav ~ .content {
-    padding-top: 50pt;
-}
-
-.big-font, .result {
-    font-size: 18pt;
-}
-
-.progressbar-text {
-    font-size: 18pt;
-}
-
-.logo {
-    height: 50pt;
-}
-
-.section {
-    padding: 15px 0px 15px 0px;
 }
 
 .visible {
@@ -99,6 +67,41 @@
 }
 
 .cover-image {
-    width: 100%;
+    width: 80%;
     height: auto;
+}
+
+@media all
+and (min-device-width: 736px) {
+    .cover {
+        width: 70%;
+        max-width: 300px;
+        max-height: 300px;
+    }
+
+    .progress-bar {
+        width: 50%;
+        max-width: 150px;
+        max-height: 150px;
+    }
+
+    .bar-nav ~ .content {
+        padding-top: 50pt;
+    }
+
+    .big-font, .result {
+        font-size: 15pt;
+    }
+
+    .progressbar-text {
+        font-size: 15pt;
+    }
+
+    .logo {
+        height: 50pt;
+    }
+
+    .section {
+        padding: 5px 0px 5px 0px;
+    }
 }
