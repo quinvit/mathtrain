@@ -13,6 +13,7 @@ ProgressClass = inherit([EventEmitter, {
     stop: function() {
         delete this.circle;
         this.circle = null;
+        this.paused = true;
     },
     createCircle: function() {
         if($('#progress-bar-container').length) {
