@@ -1,4 +1,4 @@
-/* ----------- iPhone 4 and 4S ----------- */
+/* ----------- Below 320px ----------- */
 
 /* Portrait and Landscape */
 @media only screen
@@ -88,7 +88,7 @@ and (orientation: landscape) {
     }
 }
 
-/* ----------- iPhone 5 and 5S ----------- */
+/* ----------- iPhone 4, 4S, 5 and 5S ----------- */
 
 /* Portrait and Landscape */
 @media only screen
