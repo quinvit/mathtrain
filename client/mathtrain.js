@@ -5,107 +5,61 @@ Puzzle = {
     nextChallenge: function () {
         tmr && clearTimeout(tmr);
 
-        Meteor.call('next', Puzzle.currentLevel(), function (err, challenge) {
-            Puzzle.currentChallenge(challenge);
-            Puzzle.currentResult(null);
+        Meteor.call('next', Puzzle.currentLevel.get(), function (err, challenge) {
+            Puzzle.currentChallenge.set(challenge);
+            Puzzle.currentResult.set();
             Progress.reset();
         });
     },
     pauseTime: 1000,
-    right: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('right', ~~value);
-        }
-
-        return ~~Session.get('right');
-    },
-    wrong: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('wrong', ~~value);
-        }
-
-        return ~~Session.get('wrong');
-    },
-    playing: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('playing', !!value);
-        }
-
-        return !!Session.get('playing');
-    },
-    currentResult: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('currentResult', value);
-        }
-
-        return Session.get('currentResult');
-    },
-    currentLevel: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('currentLevel', ~~value);
-        }
-
-        return ~~Session.get('currentLevel');
-    },
-    currentChallenge: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('currentChallenge', value);
-        }
-
-        return Session.get('currentChallenge');
-    },
-    welcomeText: function (value) {
-        if (typeof value != 'undefined') {
-            Session.set('welcomeText', value);
-        }
-
-        return Session.get('welcomeText');
-    },
+    right: new ReactiveVar(),
+    wrong: new ReactiveVar(),
+    playing: new ReactiveVar(),
+    currentResult: new ReactiveVar(),
+    currentLevel: new ReactiveVar(),
+    currentChallenge: new ReactiveVar(),
+    welcomeText: new ReactiveVar(),
     checkLevel: function () {
-        var right = Puzzle.right();
-        var wrong = Puzzle.wrong();
-        var level = Puzzle.currentLevel();
+        var right = Puzzle.right.get();
+        var wrong = Puzzle.wrong.get();
+        var level = Puzzle.currentLevel.get();
 
         // Best learning factor: 50%-85%
         // Min 10 answers and correct answer is higher than 85%
         if (level < 3 && right > 10 && ((right / wrong) * 100 > 85)) {
             // Improve one level
-            Puzzle.currentLevel(++level);
+            Puzzle.currentLevel.set(++level);
 
             // Reset counter
-            Puzzle.right(0);
-            Puzzle.wrong(0);
+            Puzzle.right.set(0);
+            Puzzle.wrong.set(0);
 
         }
         else if (level >= 1 && wrong > 2 && ((right / wrong) * 100 < 50)) {
             // Down one level
             // Improve one level
-            Puzzle.currentLevel(--level);
+            Puzzle.currentLevel.set(--level);
 
             // Reset counter
-            Puzzle.right(0);
-            Puzzle.wrong(0);
+            Puzzle.right.set(0);
+            Puzzle.wrong.set(0);
         }
 
         return level;
     },
     checkAnswer: function (right) {
-        if (right === null) {
-            return null;
-        }
+        Puzzle.currentResult.set(right ? 'correct' : 'incorrect');
 
         // Auto jump to next question after 3 seconds
         if (right) {
-            Puzzle.right(Puzzle.right() + 1);
+            Puzzle.right.set(Puzzle.right.get() + 1);
         }
         else {
-            Puzzle.wrong(Puzzle.wrong() + 1);
+            Puzzle.wrong.set(Puzzle.wrong.get() + 1);
             deadCount++;
         }
 
         Puzzle.checkLevel();
-        Puzzle.currentResult(right ? 'correct' : 'incorrect');
-
         Puzzle.next();
     },
     next: function (time) {
@@ -114,73 +68,79 @@ Puzzle = {
     },
     play: function () {
         Puzzle.nextChallenge();
-        Puzzle.playing(true);
+        Puzzle.playing.set(true);
     },
     pause: function () {
         tmr && clearTimeout(tmr);
+
+        Puzzle.playing.set(false);
+
         Progress.stop();
-        Puzzle.playing(false);
     },
     stop: function () {
         tmr && clearTimeout(tmr);
-        Puzzle.wrong(0);
-        Puzzle.right(0);
-        Puzzle.currentLevel(0);
-        Puzzle.playing(false);
+
+        Puzzle.wrong.set(0);
+        Puzzle.right.set(0);
+        Puzzle.currentLevel.set(0);
+        Puzzle.playing.set(false);
+
         Progress.stop();
     }
 };
 
 Template.question.helpers({
     challenge: function () {
-        return Puzzle.currentChallenge();
+        return Puzzle.currentChallenge.get();
     },
-    level: function() {
-        return Puzzle.currentLevel();
+    level: function () {
+        return Puzzle.currentLevel.get();
     },
     playing: function () {
-        return Puzzle.playing();
+        return Puzzle.playing.get();
     }
 });
 
 Template.control.helpers({
     playing: function () {
-        return Puzzle.playing();
+        return Puzzle.playing.get();
     }
 });
 
 Template.content.helpers({
     challenge: function () {
-        return Puzzle.currentChallenge();
+        return Puzzle.currentChallenge.get();
     },
     result: function () {
-        return Puzzle.currentResult();
+        return Puzzle.currentResult.get();
     },
     waiting: function () {
-        return Puzzle.currentResult() != null;
+        return !Puzzle.currentResult.get();
     }
 });
 
 Template.content.events({
     'click #answerA': function () {
 
-        if(Puzzle.currentResult()) {
+        if (Puzzle.currentResult.get()) {
             return;
         }
 
         Progress.pause();
-        Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerA').text(), function (err, status) {
+
+        Meteor.call('answer', Puzzle.currentChallenge.get().question, $('#answerA').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
     },
     'click #answerB': function () {
 
-        if(Puzzle.currentResult()) {
+        if (Puzzle.currentResult.get()) {
             return;
         }
 
         Progress.pause();
-        Meteor.call('answer', Puzzle.currentChallenge().question, $('#answerB').text(), function (err, status) {
+
+        Meteor.call('answer', Puzzle.currentChallenge.get().question, $('#answerB').text(), function (err, status) {
             Puzzle.checkAnswer(status);
         });
     }
@@ -188,7 +148,7 @@ Template.content.events({
 
 Template.control.events({
     'click #next': function () {
-        Puzzle.nextChallenge();
+        Puzzle.nextChallenge.get();
     },
     'click #pause': function () {
         Puzzle.pause();
@@ -201,11 +161,16 @@ Template.control.events({
     }
 });
 
-Puzzle.welcomeText('Be quick don\'t be hurry');
-
-Progress.on('drain', function () {
-    Puzzle.next(Puzzle.pauseTime * 2);
-    Puzzle.currentResult('timed out');
+/************
+ Timeout when drain
+ *************/
+Tracker.autorun(function () {
+    // get drain status
+    var value = Progress.drain();
+    if (value) {
+        Puzzle.next(Puzzle.pauseTime * 2);
+        Puzzle.currentResult.set('timed out');
+    }
 });
 
-Progress.pause();
+Puzzle.welcomeText.set('Be quick don\'t be hurry');
