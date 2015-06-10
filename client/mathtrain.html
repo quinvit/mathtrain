@@ -1,36 +1,7 @@
 <head>
+
     <title>MathTrain</title>
     <meta name="viewport" content="initial-scale=1.0"/>
-    <meta name="description" content="math, train, math train, learn math, kid learn math, learn calculation, fast calculation learning">
+    <meta name="description"
+          content="math, train, math train, learn math, study math, learn calculation, fast calculation learning">
 </head>
-
-<body>
-{{> question }}
-
-</body>
-
-<template name="question">
-
-    {{> header challenge }}
-
-    <div class="content">
-        {{#if playing}}
-        {{> content }}
-        {{else}}
-        <div class="content-padded center section">
-            <div class="cover center">
-                <h3>
-                    {{welcome}}
-                </h3>
-                <img src="/images/background.jpg" alt="{{welcome}}" title="{{welcome}}" class="cover-image"/>
-            </div>
-        </div>
-        {{/if}}
-
-        <div style="clear: both"></div>
-        {{> control }}
-    </div>
-
-    {{> footer }}
-
-</template>
