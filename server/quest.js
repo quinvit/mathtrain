@@ -155,7 +155,7 @@ Quest = {
     },
     levelIndexes: ['beginner', 'junior', 'senior', 'master', 'super'],
     generate: function (levelIndex) {
-        var levelName = this.levelIndexes[levelIndex];
+        var levelName = this.levelIndexes[~~levelIndex];
         var level = this.levels[levelName] || this.levels.beginner;
 
         // Random operator
