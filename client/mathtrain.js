@@ -20,9 +20,9 @@ Puzzle = {
     currentChallenge: new ReactiveVar(),
     welcomeText: new ReactiveVar(),
     checkLevel: function () {
-        var right = Puzzle.right.get();
-        var wrong = Puzzle.wrong.get();
-        var level = Puzzle.currentLevel.get();
+        var right = ~~Puzzle.right.get();
+        var wrong = ~~Puzzle.wrong.get();
+        var level = ~~Puzzle.currentLevel.get();
 
         // Best learning factor: 50%-85%
         // Min 10 answers and correct answer is higher than 85%
@@ -52,10 +52,10 @@ Puzzle = {
 
         // Auto jump to next question after 3 seconds
         if (right) {
-            Puzzle.right.set(Puzzle.right.get() + 1);
+            Puzzle.right.set(~~Puzzle.right.get() + 1);
         }
         else {
-            Puzzle.wrong.set(Puzzle.wrong.get() + 1);
+            Puzzle.wrong.set(~~Puzzle.wrong.get() + 1);
             deadCount++;
         }
 
@@ -94,7 +94,7 @@ Template.question.helpers({
         return Puzzle.currentChallenge.get();
     },
     level: function () {
-        return Puzzle.currentLevel.get();
+        return ~~Puzzle.currentLevel.get();
     },
     playing: function () {
         return Puzzle.playing.get();
@@ -103,7 +103,7 @@ Template.question.helpers({
 
 Template.control.helpers({
     playing: function () {
-        return Puzzle.playing.get();
+        return !!Puzzle.playing.get();
     }
 });
 
