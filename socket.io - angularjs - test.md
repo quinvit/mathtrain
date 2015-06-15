@@ -1,8 +1,9 @@
-Multiplayer test with socket.io and angularjs
+```
+Multiplayer test with socket.io and angularjs.
 
 http://nz-play-friend.azurewebsites.net/
 
-Login and invite other online users to play together
+Login and invite other online users to play together.
 
 Username Password
 an3963 BlackBee
@@ -14,3 +15,4 @@ minh3876 BlackBee
 qui1576 BlackBee
 tai1082 BlackBee
 hien3594 BlackBee
+```
