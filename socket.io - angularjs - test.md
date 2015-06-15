@@ -1,8 +1,10 @@
-# Multiplayer test with socket.io and angularjs.
+### Multiplayer test with socket.io and angularjs.
 
 [Demo](http://nz-play-friend.azurewebsites.net/)
 
-# Login and invite other online users to play together.
+### Login and invite other online users to play together.
+
+
 ```
 
 Username Password
