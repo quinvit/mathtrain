@@ -1,6 +1,8 @@
+Multiplayer test with socket.io and angularjs
+
 http://nz-play-friend.azurewebsites.net/
 
-
+Username Password
 an3963 BlackBee
 binh1581 BlackBee
 dat3125 BlackBee
