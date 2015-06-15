@@ -2,6 +2,8 @@ Multiplayer test with socket.io and angularjs
 
 http://nz-play-friend.azurewebsites.net/
 
+Login and invite other online users to play together
+
 Username Password
 an3963 BlackBee
 binh1581 BlackBee
